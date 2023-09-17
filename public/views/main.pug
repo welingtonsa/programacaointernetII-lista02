@@ -1,0 +1,34 @@
+
+//-Carousel
+div.container 
+    div.row.m-t-3 
+        div.col-lg-12
+            div#demo.carousel.slide(data-bs-ride="carousel")
+                //-Indicadores/pontos
+                div.carousel-indicators 
+                    button.active(type="button",data-bs-target="#demo",data-bs-slide-to="0")
+                    button(type="button",data-bs-target="#demo",data-bs-slide-to="1")
+                    button(type="button",data-bs-target="#demo",data-bs-slide-to="2") 
+                //-slideshows
+                div.carousel-inner 
+                    div.carousel-item.active
+                        img.img-fluid(src=bbt_fotoBg, alt="BBT", style="width=50%")
+                        div.carousel-caption 
+                            h3 #{bbt_nome}
+                            p #{bbt_generos}
+                    div.carousel-item
+                        img.img-fluid(src=sn_fotoBg, alt="BBT", style="width=50%")
+                        div.carousel-caption 
+                            h3 #{sn_nome}
+                            p #{sn_generos}
+                    div.carousel-item
+                        img.img-fluid(src=st_fotoBg, alt="BBT", style="width=50%")
+                        div.carousel-caption 
+                            h3 #{st_nome}
+                            p #{st_generos}  
+                //-Coontrole direita/esquerda
+                button.carousel-control-prev(type="button",data-bs-target="#demo",data-bs-slide="prev")
+                    span.carousel-control-prev-icon
+                button.carousel-control-next(type="button",data-bs-target="#demo", 
+                    data-bs-slide="next")
+                    span.carousel-control-next-icon
