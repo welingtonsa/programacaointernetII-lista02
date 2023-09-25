@@ -1,0 +1,9 @@
+//- Declarando uma funcao pug
+mixin elencoCard(elenco)
+
+        div.mt-3.p-3.col-lg-2
+            div.card
+                img.card-img-top(src=elenco.foto)
+                div.card-body 
+                    h4.card-title #{elenco.nome} 
+                    p.card-text #{elenco.personagem}

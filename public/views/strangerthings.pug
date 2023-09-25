@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+    //- Include head viws pug
+    include ../views/head.pug 
+
+body 
+    //- Include nav vies pug
+    include ../views/nav.pug 
+
+    div.container 
+        div.row.m-t-3
+            div.col-lg-12 
+
+                
+                div.d-flex.flex-wrap 
+                    //- Poster Card -------------------------------
+                    div.mt-3.p-3.col-lg-6 
+                        div.card 
+                            img.card-img-top(src=st_fotoPoster alt='Card Poster')
+                    //- Info Card ---------------------------------
+                    div.mt-3.p-3.col-lg-6 
+                        div.card 
+                            div.card-body 
+                                h4.card-tile #{st_nome}
+                                p.card-text #{st_resumo}
+                                p.card-text Genero : #{st_generos}
+                                p.card-text Numeros de Episodios : #{st_num_episodios}
+                                p.card-text Numeros de Temporadas : #{st_num_temporadas}
+                                p.card-text Nota : #{st_nota} 
+                div.d-flex.flex-wrap 
+                    //- Elenco ---------------------------------------
+                    div.mt-3.p-3.col-lg-12 
+                        h2 Elenco 
+                div.d-flex.flex-wrap 
+                    //- Include elenco views pug
+                    include ../views/_elencoCard.pug 
+                    each elenco in st_elenco 
+                        +elencoCard(elenco)                
+                //- Temporadas --------------------------------------
+                div.d-flex.flex-wrap 
+                    div.mt-3.p-3.col-lg-12 
+                        h2 Temporadas 
+                div.d-flex.flex-wrap 
+                    div.mt-3.p-3.col-lg-12 
+                        //- Include temporadasCollapse pug
+                        include ../views/_temporadasCollapse.pug 
+                        +temporadasCollapse(st_temporadas)

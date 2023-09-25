@@ -1,0 +1,49 @@
+doctype html 
+html(lang="eng")
+    //- Include views head pug
+    include ../views/head.pug 
+
+body 
+    //- Include views nav pug
+    include ../views/nav.pug 
+
+    div.container 
+        div.row.m-t-3 
+            div.col-lg-12 
+
+                //- Poster e Info Cards ------------------------------------
+                div.d-flex.flex-wrap 
+                    //-Poster Card
+                    div.mt-3.p-3.col-lg-6 
+                        div.card 
+                            img.card-img-top(src=sn_fotoPoster alt='Card Poster')
+                    //- Info Card
+                    div.mt-3.p-3.col-lg-6 
+                        div.card 
+                            div.card-body 
+                                h4.card-tile #{sn_nome}
+                                p.card-text #{sn_resumo}
+                                p.card-text Generos : #{sn_generos}
+                                p.card-text Numeros de Episodios : #{sn_num_episodios}
+                                p.card-text Numeros de Temporadas : #{sn_num_temporadas}
+                                p.card-text Nota : #{sn_nota}
+                //- Elenco section ------------------------------------------
+                div.d-flex.flex-wrap 
+                    div.mt-3.p-3.col-lg-12 
+                        h2 Elenco 
+                div.d-flex.flex-wrap 
+                    
+                        //- Include elenco views pug 
+                        include ../views/_elencoCard.pug 
+                        each elenco in sn_elenco 
+                            +elencoCard(elenco)
+                
+                //- Temporadas section --------------------------------------
+                div.d-flex.flex-wrap 
+                    div.mt-3.p-3.col-lg-12 
+                        h2 Temporadas 
+                div.d-flex.flex-wrap 
+                    div.mt-3.p-3.col-lg-12 
+                        //-Include temporadas views pug 
+                        include ../views/_temporadasCollapse.pug 
+                        +temporadasCollapse(sn_temporadas)

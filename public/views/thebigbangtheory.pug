@@ -1,0 +1,52 @@
+doctype doctype html
+html(lang="en")
+    include ../views/head.pug
+
+body 
+    include ../views/nav.pug
+    div.container 
+        div.row.m-t-3 
+            div.col-lg-12
+
+                //-Poster e Info cards -------------------------------------
+                div.d-flex.flex-wrap 
+                    //- Poster card
+                    div.mt-3.p-3.col-lg-6
+                        div.card 
+                            img.card-img-top(src=bbt_fotoPoster alt='Card Poster')
+                    //- Info card
+                    div.mt-3.p-3.col-lg-6
+                        div.card 
+                            div.card-body 
+                                h4.card-title #{bbt_nome}
+                                p.card-text #{bbt_resumo}
+                                p.card-text Genero : #{bbt_generos}
+                                p.card-text Numeros de Episodios : #{bbt_num_episodios}
+                                p.card-text Numeros de Temporadas : #{bbt_num_temporadas}
+                                p.card-text Nota : #{bbt_nota}
+
+                //- Elenco --------------------------------------------------
+                div.d-flex-flex-wrap 
+                    div.mt-3.p-3.col-lg-12 
+                        h2 Elenco 
+                div.d-flex.flex-wrap 
+                    include ../views/_elencoCard.pug
+                    each elenco in bbt_elenco
+                        +elencoCard(elenco)
+
+                //- Temporadas ----------------------------------------------
+                div.d-flex.flex-wrap 
+                    div.mt-3.p-3.col-lg-12 
+                        h2 Temporadas
+                div.d-flex-flex-warp 
+                    div.mt-3.p-3.col-lg-12 
+                        //- Include _tempradas collapse pug
+                        include ../views/_temporadasCollapse.pug 
+                        +temporadasCollapse(bbt_temporadas,bbt_temporadas.episodios)
+
+         
+                         
+                
+
+    script(src="/js/jquey.min.js")
+    script(src="/js/bootstrap.min.js")

@@ -1,0 +1,27 @@
+mixin temporadasCollapse(temporadas, episodios)
+
+     div.mt-3.p-3.col-lg-12 
+        div#accordion 
+            
+            each temporada, i in temporadas
+                div.card 
+                    div.card-header 
+                        a.btn(data-bs-toggle='collapse show' href=(i)) Temporada #{temporada.numero}  <br/> Episodio #{temporada.numero_episodios} <br/> Exibicao #{temporada.exibicao}
+                        img.img-fluid.float-end(src=temporada.poster, width='100')
+                
+
+                
+                //-
+                    each episodio, j in {episodios:episodios}
+                        div.collapse(id={i}, data-bs-parent='#accordion')
+                            div.card-body Hadoukem 
+
+                //-
+                    while temporadas.episodios,length < 0
+                        div.collapse(id=(i), data-bs-parent='#accordion')
+                                div.card-body Hadoukem
+
+                //-       
+                    each episodio, j in {episodios:episodios}
+                        div.collapse(id=(i), data-bs-parent='#accordion')
+                            div.card-body Hadoukem
